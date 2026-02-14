@@ -1,8 +1,8 @@
-# Fractal Forge
+# Fractal Oxide
 
 Interactive fractal explorer built with Rust, eframe/egui, and Rayon for parallel CPU rendering.
 
-![Fractal Forge Screenshot](screenshot.png)
+![Fractal Oxide Screenshot](screenshot.png)
 
 ## Features
 
