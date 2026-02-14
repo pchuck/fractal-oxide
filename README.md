@@ -62,7 +62,7 @@ All processors receive full orbit data (final_z, orbit distances) via `compute_f
 - **Per-Fractal State** - Each fractal remembers its view position, zoom, iterations, palette, color processor, and parameters
 - **Per-Fractal Undo/Redo** - Separate 50-step command history for each fractal type
 - **Bookmarks** - Save interesting locations with names, including position, zoom, iterations, palette, color processor, and all fractal parameters
-- **Configuration File** - Saves actual window size, defaults, bookmarks, and settings to `~/.config/fractal-explorer/config.json`
+- **Configuration File** - Saves actual window size, defaults, bookmarks, and settings to `~/.config/fractal-oxide/config.json`
 
 ### Smart Features
 - **Adaptive Iterations** - Automatically increases max iterations as you zoom (prevents loss of detail at deep zoom levels)
@@ -118,30 +118,30 @@ make dist
 ```
 
 **Distribution outputs:**
-- macOS: `dist/FractalExplorer-0.1.0-macOS.dmg`
-- Linux: `dist/fractal-explorer_0.1.0_amd64.deb`
-- Windows: `dist/FractalExplorer-0.1.0-windows.zip`
+- macOS: `dist/FractalOxide-0.1.0-macOS.dmg`
+- Linux: `dist/fractal-oxide_0.1.0_amd64.deb`
+- Windows: `dist/FractalOxide-0.1.0-windows.zip`
 
 ### Installing on macOS
 ```bash
 # Open the .dmg and drag to Applications
 make dist-mac
-open dist/FractalExplorer-0.1.0-macOS.dmg
+open dist/FractalOxide-0.1.0-macOS.dmg
 ```
 
 ### Installing on Linux (Debian/Ubuntu)
 ```bash
 make dist-linux
-sudo apt install ./dist/fractal-explorer_0.1.0_amd64.deb
-# Run with: fractal-explorer
+sudo apt install ./dist/fractal-oxide_0.1.0_amd64.deb
+# Run with: fractal-oxide
 ```
 
 ### Installing on Windows
 ```bash
 make dist-windows
-# Extract FractalExplorer-0.1.0-windows.zip
+# Extract FractalOxide-0.1.0-windows.zip
 # Run install.bat as Administrator
-# Or manually copy FractalExplorer.exe to your preferred location
+# Or manually copy FractalOxide.exe to your preferred location
 ```
 
 ## UI Layout
@@ -197,9 +197,9 @@ Save interesting locations for later:
 ## Configuration
 
 Settings are automatically saved to:
-- **Linux**: `~/.config/fractal-explorer/config.json`
-- **macOS**: `~/Library/Application Support/fractal-explorer/config.json`
-- **Windows**: `%APPDATA%\fractal-explorer\config.json`
+- **Linux**: `~/.config/fractal-oxide/config.json`
+- **macOS**: `~/Library/Application Support/fractal-oxide/config.json`
+- **Windows**: `%APPDATA%\fractal-oxide\config.json`
 
 Saved settings include:
 - Actual window size (tracked each frame, saved on exit)

@@ -44,9 +44,9 @@ make deps         # Update dependencies
 make dist
 
 # Platform-specific distributions
-make dist-mac      # Creates dist/FractalExplorer-0.1.0-macOS.dmg
-make dist-linux    # Creates dist/fractal-explorer_0.1.0_amd64.deb
-make dist-windows  # Creates dist/FractalExplorer-0.1.0-windows.zip
+make dist-mac      # Creates dist/FractalOxide-0.1.0-macOS.dmg
+make dist-linux    # Creates dist/fractal-oxide_0.1.0_amd64.deb
+make dist-windows  # Creates dist/FractalOxide-0.1.0-windows.zip
 
 # Clean distribution files
 make dist-clean
@@ -252,7 +252,7 @@ Test coverage spans all 12 fractals, all 5 palettes, HSV conversion, color proce
 - **Modify fractal computation**: Edit `compute()` and `compute_full()` methods. Ensure both return consistent iteration counts.
 - **Performance**: Use Rayon parallel iterators (`par_iter()`), chunked rendering for progress updates. Add `if (power - 2.0).abs() < POWER2_EPSILON` fast path for power-based fractals.
 - **Pan optimization**: Arrow key panning shifts pixels and only renders edge regions (see `pan_view()` in main.rs)
-- **Bookmarks**: Saved in AppConfig with full fractal state (params, color processor). Persist to `~/.config/fractal-explorer/config.json`
+- **Bookmarks**: Saved in AppConfig with full fractal state (params, color processor). Persist to `~/.config/fractal-oxide/config.json`
 - **Color Processor**: Add variant to `ColorProcessorType` -> implement `ColorProcessor` trait -> add to factory method. Processors receive `FractalResult` with orbit data.
 - **Thread count display**: Uses `rayon::current_num_threads()` in `RenderStatus` struct
 - **New constants**: Add to the constants block at the top of `main.rs` or fractal-specific constants in `fractal/mod.rs`
