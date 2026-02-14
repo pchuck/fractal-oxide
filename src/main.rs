@@ -76,6 +76,17 @@ impl AppConfig {
         dirs::config_dir().map(|dir| dir.join("fractal-oxide").join("config.json"))
     }
 
+    fn images_dir() -> Option<PathBuf> {
+        dirs::config_dir().map(|dir| dir.join("fractal-oxide").join("images"))
+    }
+
+    fn images_dir_fallback() -> PathBuf {
+        dirs::picture_dir()
+            .unwrap_or_else(|| dirs::home_dir().unwrap_or_else(|| PathBuf::from(".")))
+            .join("FractalOxide")
+    }
+}
+
     fn load() -> Self {
         if let Some(path) = Self::config_path() {
             if let Ok(contents) = std::fs::read_to_string(&path) {
@@ -433,13 +444,17 @@ impl FractalApp {
             self.render_high_res(&mut img, width, height)?;
         }
 
-        let filename = format!(
-            "images/{}_{}_{}x{}.png",
-            fractal_name, palette_name, width, height
-        );
-        std::fs::create_dir_all("images")
-            .map_err(|e| format!("Failed to create images directory: {}", e))?;
-        let path = PathBuf::from(&filename);
+        let images_dir = AppConfig::images_dir()
+            .unwrap_or_else(AppConfig::images_dir_fallback);
+        std::fs::create_dir_all(&images_dir)
+            .map_err(|e| {
+                format!(
+                    "Failed to create images directory at {:?}: {}",
+                    images_dir, e
+                )
+            })?;
+        let filename = format!("{}_{}_{}x{}.png", fractal_name, palette_name, width, height);
+        let path = images_dir.join(&filename);
         img.save(&path)
             .map_err(|e| format!("Failed to save image: {}", e))?;
         Ok(path)
