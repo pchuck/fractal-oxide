@@ -1,4 +1,4 @@
-# Agent Guidelines - Rust Fractal Forge
+# Agent Guidelines - Rust Fractal Oxide
 
 ## Project Overview
 
