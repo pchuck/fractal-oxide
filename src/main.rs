@@ -39,7 +39,7 @@ const ZOOM_KEYBOARD_FACTOR: f64 = 1.5;
 const PAN_AMOUNT_BASE: f64 = 0.5;
 const SCROLL_ZOOM_SENSITIVITY: f64 = 0.01;
 const SCROLL_DEADZONE: f32 = 0.1;
-const ABOUT_IMAGE_PATH: &str = "images/mandelbrot_grayscale_904x784.png";
+const ABOUT_IMAGE_PATH: &str = "resources/orbit_trap_grayscale.png";
 const ABOUT_IMAGE_DISPLAY_WIDTH: f32 = 452.0;
 const ABOUT_IMAGE_DISPLAY_HEIGHT: f32 = 392.0;
 
