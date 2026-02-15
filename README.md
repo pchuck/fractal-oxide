@@ -2,7 +2,7 @@
 
 Interactive fractal explorer built with Rust, eframe/egui, and Rayon for parallel CPU rendering.
 
-![Fractal Oxide Screenshot](images/screenshot.png)
+![Fractal Oxide Screenshot](resources/screenshot.png)
 
 ## Features
 
