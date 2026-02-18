@@ -4,6 +4,7 @@ Interactive fractal explorer built in Rust using eframe/egui, and Rayon for fast
 
 ![Fractal Oxide Screenshot](images/screenshot.png)
 
+
 ## Features
 
 ### Key Features
@@ -51,6 +52,7 @@ make fmt
 make lint
 ```
 
+
 ## Distribution and Installation
 
 ### MacOS
@@ -90,6 +92,10 @@ make dist # create all distributions
 - `serde` / `serde_json` - Configuration serialization
 - `dirs` - Cross-platform config directory detection
 
+
+## More Details
+
+- [Detailed Features and Specification](SPECS.md)
 
 
 ## License
