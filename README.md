@@ -51,49 +51,33 @@ make fmt
 make lint
 ```
 
-## Distribution
+## Distribution and Installation
 
-Create platform-specific installers:
-
+### MacOS
 ```bash
-# Create macOS .dmg package
-make dist-mac
-
-# Create Linux .deb package (for apt install)
-make dist-linux
-
-# Create Windows installer package
-make dist-windows
-
-# Create all distributions
-make dist
-```
-
-**Distribution outputs:**
-- macOS: `dist/FractalOxide-vX.Y.Z-macOS.dmg`
-- Linux: `dist/fractal-oxide_vX.Y.Z_amd64.deb`
-- Windows: `dist/FractalOxide-vX.Y.Z-windows.zip`
-
-### Installing on macOS
-```bash
+make dist-mac # creats a MacOS .dmg package
+open dist/FractalOxide-vX.Y.Z-macOS.dmg
 # Open the .dmg and drag to Applications
-make dist-mac
-open dist/FractalOxide-0.1.0-macOS.dmg
 ```
 
-### Installing on Linux (Debian/Ubuntu)
+### Linux (Debian/Ubuntu)
 ```bash
-make dist-linux
-sudo apt install ./dist/fractal-oxide_0.1.0_amd64.deb
+make dist-linux # creates a Linux .deb package
+sudo apt install ./dist/fractal-oxide_vX.Y.Z_amd64.deb
 # Run with: fractal-oxide
 ```
 
-### Installing on Windows
+### Windows
 ```bash
-make dist-windows
-# Extract FractalOxide-0.1.0-windows.zip
+make dist-windows # creates a Windows installer
+# Extract FractalOxide-vX.Y.Z-windows.zip
 # Run install.bat as Administrator
 # Or manually copy FractalOxide.exe to your preferred location
+```
+
+### All
+```bash
+make dist # create all distributions
 ```
 
 
