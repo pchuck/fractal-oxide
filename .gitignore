@@ -2,6 +2,5 @@
 output/
 target/
 dist/
+images/
 .DS_Store
-
-
