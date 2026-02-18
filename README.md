@@ -1,15 +1,15 @@
 # Fractal Oxide
 
-Interactive fractal explorer built with Rust, eframe/egui, and Rayon for parallel CPU rendering.
+Interactive fractal explorer built in Rust using eframe/egui, and Rayon for fast parallel rendering.
 
 ![Fractal Oxide Screenshot](images/screenshot.png)
 
 ## Features
 
 ### Key Features
-- **Supersampling** - Anti-aliased oversampling for high-quality visualizations and output
 - **High-Performance** - CPU-parallel using all available cores
 - **Optimized** - Optimized previews, zooming and panning, with pixel caching
+- **Supersampled** - Anti-aliased oversampling for high-quality visualizations and output
 - **Configurable** - Variety of colormaps and color processors
 - **Adaptive** - Varied iteration limits while zooming to preserve detail
 
