@@ -39,7 +39,7 @@ const ZOOM_KEYBOARD_FACTOR: f64 = 1.5;
 const PAN_AMOUNT_BASE: f64 = 0.5;
 const SCROLL_ZOOM_SENSITIVITY: f64 = 0.01;
 const SCROLL_DEADZONE: f32 = 0.1;
-const ABOUT_IMAGE_PATH: &str = "images/mandelbrot_grayscale_904x784.png";
+const ABOUT_IMAGE_PATH: &str = "resources/orbit_trap_grayscale.png";
 const ABOUT_IMAGE_DISPLAY_WIDTH: f32 = 452.0;
 const ABOUT_IMAGE_DISPLAY_HEIGHT: f32 = 392.0;
 
@@ -74,6 +74,16 @@ impl Default for AppConfig {
 impl AppConfig {
     fn config_path() -> Option<PathBuf> {
         dirs::config_dir().map(|dir| dir.join("fractal-oxide").join("config.json"))
+    }
+
+    fn images_dir() -> Option<PathBuf> {
+        dirs::config_dir().map(|dir| dir.join("fractal-oxide").join("images"))
+    }
+
+    fn images_dir_fallback() -> PathBuf {
+        dirs::picture_dir()
+            .unwrap_or_else(|| dirs::home_dir().unwrap_or_else(|| PathBuf::from(".")))
+            .join("FractalOxide")
     }
 
     fn load() -> Self {
@@ -433,13 +443,17 @@ impl FractalApp {
             self.render_high_res(&mut img, width, height)?;
         }
 
-        let filename = format!(
-            "images/{}_{}_{}x{}.png",
-            fractal_name, palette_name, width, height
-        );
-        std::fs::create_dir_all("images")
-            .map_err(|e| format!("Failed to create images directory: {}", e))?;
-        let path = PathBuf::from(&filename);
+        let images_dir = AppConfig::images_dir()
+            .unwrap_or_else(AppConfig::images_dir_fallback);
+        std::fs::create_dir_all(&images_dir)
+            .map_err(|e| {
+                format!(
+                    "Failed to create images directory at {:?}: {}",
+                    images_dir, e
+                )
+            })?;
+        let filename = format!("{}_{}_{}x{}.png", fractal_name, palette_name, width, height);
+        let path = images_dir.join(&filename);
         img.save(&path)
             .map_err(|e| format!("Failed to save image: {}", e))?;
         Ok(path)
