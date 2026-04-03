@@ -4,6 +4,6 @@
 ** on macos - 
 ** on windows -
 
-* change to numeric fields (trap_x, trap_y, max_iter) is not triggering a rerender
+* changes to numeric fields (trap_x, trap_y, max_iter) is not triggering a rerender
 ** <cr> after enter the numeric should trigger an event
 
